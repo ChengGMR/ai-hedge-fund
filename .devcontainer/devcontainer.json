@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+	"build": {
+		// Sets the run context to one level up instead of the .devcontainer folder.
+		"context": "..",
+		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+		"dockerfile": "../Dockerfile"
+	},
+	"mounts": [],
+	"containerEnv": { // variables that should apply to the entire container
+		"USER": "${localEnv:USER}",
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"NVIDIA_VISIBLE_DEVICES": "all",
+		"NVIDIA_DRIVER_CAPABILITIES": "compute,utility,display",
+		"XAUTHORITY": "${localEnv:XAUTH}",
+		"QT_X11_NO_MITSHM": "1"
+	}
+}
